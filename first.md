@@ -1,5 +1,41 @@
 ---
-# ветвления   
+# ветвления 
+## Номер 1.
+```
+print(max([float(input()) for i in range(3)]))
+```
+## Номер 2.
+```
+print("Чётное" if int(input()) % 2 == 0 else "Нечётное")
+```
+## Номер 3.
+```
+x, y = map(float, (input().split())) # ввод - 2 числа через пробел
+r = float(input())
+
+print('Лежит' if (((x ** 2) + (y ** 2)) ** 0.5) <= (r ** 2) ** 0.5 else 'Не лежит')
+```
+## Номер 4.
+```
+months = {"1": 31, "2": 28, "3": 31, "4": 30, "5": 31, "6": 30, "7": 31, "8": 31, "9": 30, "10": 31, "11": 30, "12": 31}
+print(months.get(input()))
+```
+## Номер 5.
+```
+print(min([float(input()) for i in range(4)]))
+```
+## Номер 6.
+```
+v = float(input())
+print('Упадёт на Землю' if v < 7.8 else 'Станет спутником земли' if 13.8 > v > 7.8 else 'Станет спутником Солнца' if 16.4 > v > 11.2 else 'Покинет Солнечную систему')
+```
+## Номер 7.
+```
+a = float(input())
+r = float(input())
+
+print('Круг может быть вписан в квадрат' if 2 * r == a else 'Квадрат может быть вписан в круг' if ((a ** 2) + (a ** 2)) ** 0.5 == r * 2 else "Фигуры никак не могут взаимодействовать")
+```
 ## Номер 8.   
 ```
 b = ['Иванов', 'Петров', 'Сидоров']
@@ -8,24 +44,9 @@ ivanov, petrov, sidorov = [{'wins': 0, 'points1': int(input()), 'points2': int(i
 
 for i in range(1, 4):
     points = sorted([ivanov, petrov, sidorov], key=lambda x: x[f'points{i}'], reverse=True)
-
-
-for i in range(1, 4):
-    a, b, c = ivanov[f'points{i}'], petrov[f'points{i}'], sidorov[f'points{i}']
-    if len(set([a, b, c])) == 3: # проверка на уникальные значения и однозначную победу
-        if max(a, b, c) == a:
-            ivanov['wins'] += 1
-        elif max(a, b, c) == b:
-            petrov['wins'] += 1
-        else:
-            sidorov['wins'] += 1
-    else:
-        if points[0][f'points{i}'] == points[2][f'points{i}']: # согласно свойству неравенств, если a == с, b == c, то a == b == c
-            pass
-        elif points[0][f'points{i}'] == points[1][f'points{i}']: # согласно свойству неравенств, если a == b, b > c, то a > c
-            pass
-        elif points[0][f'points{i}'] > points[1][f'points{i}']: # список неуникален, значения повторяются и значения отличаются на некоторое значение -> 1-ое значение наибольшее
-            points[0]['wins'] += 1
+    for j in range(3):
+        if points[0][f'points{i}'] > points[1][f'points{i}']:
+            points[0]['wins'] += 1 
 
 
 def win_res(a): # ввод - список словарей
@@ -35,16 +56,10 @@ def win_res(a): # ввод - список словарей
         print(f'{res[0]['name']} победил с {res[0]['points']} баллами')
     else:
         res = sorted(a, key=lambda x: x['points'], reverse=True)
-        if len(set([res[0]['points'], res[1]['points'], res[2]['points']])) == 3:
+        if res[0]['points'] > res[1]['points'] and res[0]['points'] > res[2]['points']:
             print(f'{res[0]['name']} победил в пересчёте с {res[0]['points']} баллами')
-
-        elif len(set([res[0]['points'], res[1]['points'], res[2]['points']])) == 2:
-            if res[0]['points'] == res[1]['points']:
-                print('Ничья: одинаковое количество баллов и побед у 2 ведущих участников')
-            elif res[0]['points'] > res[1]['points']:
-                print(f'{res[0]['name']} победил в пересчёте с {res[0]['points']} баллами')
         else:
-            print(f'Ничья: одинаковое количество баллов и побед у всех участников')
+            print(f'Ничья: количество очков и побед одинаковое у участников')
     
 
 win_res(points)
