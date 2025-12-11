@@ -57,4 +57,43 @@ def merge(Left, Right):
 print(merge_sort([123, 5351, 12315, 125162, 65, 351, 52, 67, 6767]))
 ```
 
-#
+# Selection sort
+
+Time efficiency (best & worst): __O(n^2)__
+
+Memory efficiency: __O(1)__
+
+Is stable?: ***can be both stable 'n unstable***
+
+```
+def selection_sort(array):
+    for i in range(len(array) - 1):
+        for j in range(i + 1, len(array)):
+            if array[i] > array[j]:
+                array[i], array[j] = array[j], array[i]
+    return array
+```
+
+# Insertion sort
+
+Time efficiency (best & worst):  __always O(n^2)__
+
+Memory efficiency: __O(n)__ ***for insertions***, __O(1)__ for auxiliary
+
+Is stable?: __yeah__
+
+```
+def insertion_sort(array) -> list:
+    n = len(array)
+    for i in range(1, n):
+        x = array[i]
+        j = i - 1
+        while j >= 0 and array[j] > x:
+            array[j + 1] = array[j]
+            j -= 1
+        array[j + 1] = x
+    return array
+
+
+print(insertion_sort([12, 67, 88, 1337, 1987, 6767, 0, 5]))
+```
