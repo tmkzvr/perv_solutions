@@ -36,7 +36,7 @@ r = float(input())
 
 print('Круг может быть вписан в квадрат' if 2 * r == a else 'Квадрат может быть вписан в круг' if ((a ** 2) + (a ** 2)) ** 0.5 == r * 2 else "Фигуры никак не могут взаимодействовать")
 ```
-## Номер 8.   
+## Номер 8 - wrong
 ```
 b = ['Иванов', 'Петров', 'Сидоров']
 ivanov, petrov, sidorov = [{'wins': 0, 'points1': int(input()), 'points2': int(input()), 'points3': int(input()), 'name': b[i]} for i in range(3)]
@@ -69,7 +69,7 @@ win_res(points)
 Price, Money = float(input()), float(input())
 print(f'Сдача {Money - Price}' if Money > Price else 'Спасибо' if Money == Price else f'Недостаточно {Price - Money}')
 ```
-## Номер 10.
+## Номер 10 - wrong
 ```
 k = str(input())
 
@@ -83,7 +83,7 @@ else:
     suf = 'ов'
 print(f'Мы нашли в лесу {k} гриб{suf}')
 ```
-## Номер 11.
+## Номер 11 wrong
 ```
 k = str(input())
 
@@ -96,7 +96,7 @@ elif k[-1] in ['5', '6', '7', '8', '9', '0']:
 elif k[-1] == '1':
     print(f'Мне {k} год')
 ```
-## Номер 12.
+## Номер 12 wrong
 ```
 a, b, c, d = map(int, input().split())
 
@@ -115,12 +115,9 @@ else:
 ```
 a = int(input()) # 0 до 1000
 count = 0
-num = 10
 while a != 0:
     a //= 10
     count += 1
-    num *= 10
-    
 print(f'Количество разрядов: {count}')
 ```
 ## Номер 14.
@@ -163,7 +160,7 @@ def tic_tac_toe(x) -> str:
 print(tic_tac_toe(matrix))
     
 ```
-## Номер 15.
+## Номер 15 wrong
 ```
 a, b, c = (float(input()), float(input())), (float(input()), float(input())), (float(input()), float(input()))
 
@@ -201,7 +198,7 @@ def main():
 
 print(main())
 ```
-## Номер 16.
+## Номер 16 wrong
 ```
 point = (float(input()), float(input()))
 diamond = (float(input()), float(input()))
@@ -255,7 +252,7 @@ def main():
 
 print(main())
 ```
-## Номер 19.
+## Номер 19 wrong
 ```
 i = int(input())
 
@@ -311,4 +308,149 @@ x, y, z = input().split()
 
 
 print(ceil(int(x + y + z) / 10) * 10)
+```
+## Номер 24 - work in progress
+```
+a1, a2 = (float(input()), float(input())), (float(input()), float(input()))
+r1, r2 = float(input()), float(input())
+
+
+def equation(x, y, radius, x1, y1) -> bool:
+    cond = (((x1 - x) ** 2) + ((y1 - y)) ** 2) <= radius
+    return cond
+
+
+def dist(start, end) -> float:
+    return ((end[1] - start[1]) ** 2) + (((end[0]) - start[0]) ** 2)
+
+
+def intersec(start, end, r1, r2):
+    for i in range()
+
+def main():
+    global a1, a2
+    if dist(a1, a2) == 0:
+        return 'Круги входят друг в друга'
+    elif dist(a1, a2) <
+```
+## Номер 25 - wrong
+```
+print(True if len(set(str(input()))) == 3 else False)
+```
+## Номер 26
+```
+field1 = str(input()).lower() # ввод - шахматное поле вида "a1"
+field2 = str(input()).lower() # ввод - шахматное поле вида "a1"
+
+x1, y1 = field1[0], int(field1[1])
+x2, y2 = field2[0], int(field2[1])
+
+
+notation = {'a': 0, 'b': 1, 'c': 2, 'd': 3, 'e': 4, 'f': 5, 'g': 6, 'h': 7}
+
+x1, x2 = notation.get(x1), notation.get(x2)
+
+def black(x, y):
+    if x % 2 == 0 and y % 2 == 1 or y % 2 == 0:
+        return True
+    return False
+
+if black(x1, y1) == black(x2, y2):
+    print('Поля являются одного цвета')
+else:
+    print('Поля не являются одного цвета')
+```
+## Номер 27
+```
+field1, field2 = str(input()), str(input())
+
+notation = {'a': 0, 'b': 1, 'c': 2, 'd': 3, 'e': 4, 'f': 5, 'g': 6, 'h': 7}
+
+x1, x2 = notation.get(field1[0]), notation.get(field2[0])
+y1, y2 = int(field1[1]), int(field2[1])
+
+def diag(x1, y1, x2, y2) -> bool:
+    for i in range(1, 9):
+        if x1 == x2 - i:
+            if y1 == y2 - i:
+                return True
+            elif y1 == y2 + i:
+                return True
+        elif x1 == x2 + i:
+            if y1 == y2 + i:
+                return True
+            elif y1 == y2 - i:
+                return True
+    return False
+
+def main():
+    global x1, y1, x2, y2
+    if diag(x1, y1, x2, y2) or (x1 == x2 or y1 == y2):
+        print(f'Ферзь на {field2} Угрожает полю {field1}')
+    else:
+        print(f'Ферзь на поле {field2} не угрожает полю {field1}')
+main()
+```
+## Номер 28 - wrong
+```
+A, B, C = (float(input()), float(input())), (float(input()), float(input())), (float(input()), float(input()))
+
+def lenght(x1, x2, x3):
+    return (min(x1, x2, x3), max(x1, x2, x3))
+
+
+def height(y1, y2, y3):
+    return (min(y1, y2, y3), max(y1, y2, y3))
+
+
+def main():
+    global A, B, C
+    if min(lenght(A[0], B[0], C[0])) <= 0.0 <= max(lenght(A[0], B[0], C[0])) and  min(height(A[1], B[1], C[1])) <= 0.0 <= max(height(A[1], B[1], C[1])):
+        return 'Лежит'
+    return 'Не лежит'
+
+print(main())
+```
+## Номер 29 - wrong
+```
+x, y = float(input()), float(input())
+
+print(f'{x} метров - ближайшее растояние до бортика бассейна' if x <= y else f'{y} метров - ближайшее растояние до бортика бассейна')
+```
+## Номер 30 - wrong
+```
+x = float(input())
+if x <= 0:
+    raise ValueError('Число лет должно быть больше нуля')
+
+years = 0
+if x - 2 >= 0:
+    years += 21
+    x -= 2
+else:
+    years = (x / 2) * 21
+    x = 0
+
+
+while x != 0:
+    years += 7
+    x -= 1
+
+print(years)
+```
+## Номер 31
+```
+a, b, c = float(input()), float(input()), float(input())
+
+
+D = (b ** 2) - (4 * a * c)
+
+if D > 0:
+    x1, x2 = ((-b) + (D ** 0.5)) / (2 * a), ((-b) - (D ** 0.5)) / (2 * a)
+    print(x1, x2) 
+elif D == 0:
+    x1 = (-b) / (2 * a)
+    print(x1)
+else:
+    print('Корней нет')
 ```
