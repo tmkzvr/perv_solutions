@@ -97,3 +97,7 @@ def insertion_sort(array) -> list:
 
 print(insertion_sort([12, 67, 88, 1337, 1987, 6767, 0, 5]))
 ```
+# Block sort
+
+```
+def block_sort(array) -> list:
